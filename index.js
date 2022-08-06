@@ -10,6 +10,11 @@ const port = parseInt(process.env.PORT) || 4000;
 app.use(router, express.json(), express.urlencoded({
     extended: true
 }));
+app.use(express.static('views'))
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + "index.html")
+})
 app.listen(port, ()=> {
     console.log(`Server is running on port ${port}`);
 })
