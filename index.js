@@ -14,8 +14,9 @@ app.use(router, express.json(), express.urlencoded({
 app.use(express.static('views'))
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + "index.html"))
+    res.status(200).sendFile(path.join(__dirname, 'views', 'index.html'));
 })
+
 app.listen(port, ()=> {
     console.log(`Server is running on port ${port}`);
 })
