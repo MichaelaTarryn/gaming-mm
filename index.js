@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const db = require('./config/dbconn');
 const router = require('./routes/routes');
+const path = require('path')
 // express app
 const app = express();
 // Router
@@ -13,7 +14,7 @@ app.use(router, express.json(), express.urlencoded({
 app.use(express.static('views'))
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + "index.html")
+    res.sendFile(path.join(__dirname + "index.html"))
 })
 app.listen(port, ()=> {
     console.log(`Server is running on port ${port}`);
