@@ -16,7 +16,7 @@ const port = parseInt(process.env.PORT) || 4000;
 app.use(router, express.json(), express.urlencoded({
     extended: true
 }));
-let staticPath = path.join(__dirname + "./views")
+let staticPath = path.join(__dirname + "./public")
 app.use(express.static(staticPath));
 
 app.get('/', (req, res,next ) => {
