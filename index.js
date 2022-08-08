@@ -11,10 +11,10 @@ const port = parseInt(process.env.PORT) || 4000;
 app.use(router, express.json(), express.urlencoded({
     extended: true
 }));
-app.use(express.static('views'))
+app.use(express.static(_dirname +"/views"));
 
-app.get('/', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'views', 'index.html'));
+app.get('/', (req, res,next ) => {
+    res.sendFile(path.resolve(__dirname, 'views/index.html'));
 })
 
 app.listen(port, ()=> {
